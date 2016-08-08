@@ -90,7 +90,7 @@ class LazySizes
 		}
 		
 		// New template arrData
-		$arrData['img']['src'] = 'dfg';	// debug
+		//$arrData['img']['src'] = 'dfg';	// debug
 		$arrData['img']['placeholder'] = 'data:image/png;base64,' .$transparentPlaceholder;
 		$objTemplate->setData($arrData);
 		
