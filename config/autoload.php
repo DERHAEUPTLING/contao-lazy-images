@@ -18,7 +18,7 @@
 ClassLoader::addClasses(array
 (
 	// Classes
-	'Contao\LazySizes'            => 'system/modules/zz_LazyLoad/library/DerHaeuptling/classes/LazySizes.php',
+	'Contao\LazySizes'            => 'system/modules/zz_lazy-images/library/DerHaeuptling/classes/LazySizes.php',
 
 	// Elements
 	'Contao\LazyContentText'            => 'system/modules/zz_lazy-images/elements/LazyContentText.php',
