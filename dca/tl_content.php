@@ -6,7 +6,6 @@
  * @copyright  DerHaeuptling 2016
  * @author     Martin Schwenzer <mail@derhaeuptling.com>
  * @author     Sebastijan Ribaric <sebastijan.ribaric@media-8.org>
- * @author     Kamil Kuzminski <kamil.kuzminski@codefog.pl>
  * @package    Lazy Images
  * @license    http://opensource.org/licenses/lgpl-3.0.html 
  */
@@ -16,7 +15,7 @@
  */
 $GLOBALS['TL_DCA']['tl_content']['fields']['lazyDisable'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_article']['lazyDisable'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['lazyDisable'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'w50 m12'),
@@ -28,4 +27,3 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addImage'] = str_replace(',floa
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_content']['palettes']['image'] = str_replace(',caption;', ',caption,lazyDisable;', $GLOBALS['TL_DCA']['tl_content']['palettes']['image']);
-//$GLOBALS['TL_DCA']['tl_content']['palettes']['gallery'] = str_replace(',numberOfItems;', ',numberOfItems,lazyDisable;', $GLOBALS['TL_DCA']['tl_content']['palettes']['gallery']);

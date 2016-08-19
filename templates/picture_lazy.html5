@@ -1,3 +1,4 @@
+
 <?php if ($this->sources): ?>
   <picture>
     <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -9,7 +10,7 @@
 
 <img
   src="<?php echo $this->img['src'] ?>"
-  <?php if ($this->img['srcset'] !== $this->img['src']) echo ' srcset="'.$this->img['placeholder'].' '.$this->img['width'].'w"'; ?>
+  srcset="<?php echo $this->img['src'] .' w'.$this->img['width'] ?>"
   <?php if ($this->img['srcset'] !== $this->img['src']) echo ' data-srcset="' . $this->img['srcset'] . '"'; ?>
   <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"';?>
   <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>

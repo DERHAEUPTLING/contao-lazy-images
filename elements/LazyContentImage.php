@@ -6,7 +6,6 @@
  * @copyright  DerHaeuptling 2016
  * @author     Martin Schwenzer <mail@derhaeuptling.com>
  * @author     Sebastijan Ribarić <sebastijan.ribaric@media-8.org>
- * @author     Kamil Kuzminski <kamil.kuzminski@codefog.pl>
  * @package    Lazy Images
  * @license    http://opensource.org/licenses/lgpl-3.0.html 
  */
@@ -24,7 +23,7 @@ class LazyContentImage extends \ContentImage
 		parent::compile();
 		
 		// LazyDisable indicator for use in picture template
-		$arrData = $this->Template->getData();
+		$arrData = $this->arrData['Template']->getData();
 		$arrData['picture']['lazyDisable'] = $this->arrData['lazyDisable'];
 		$this->Template->setData($arrData);
 

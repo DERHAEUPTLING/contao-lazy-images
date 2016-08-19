@@ -6,7 +6,6 @@
  * @copyright  DerHaeuptling 2016
  * @author     Martin Schwenzer <mail@derhaeuptling.com>
  * @author     Sebastijan Ribarić <sebastijan.ribaric@media-8.org>
- * @author     Kamil Kuzminski <kamil.kuzminski@codefog.pl>
  * @package    Lazy Images
  * @license    http://opensource.org/licenses/lgpl-3.0.html 
  */
@@ -19,19 +18,19 @@ class LazySizes
 	 * Cache prefix
 	 * @var string
 	 */
-	const LAZY_CACHE_KEY = 'LazySizes';
+	const LAZY_CACHE_KEY = 'LazyImages';
 	
 	/**
 	 * Working empty image
 	 * @var string
 	 */
-	const PNG_TRANSPARENT_IMAGE = 'system/modules/zz_lazy-images/assets/transparent.png';
+	const PNG_TRANSPARENT_IMAGE = 'system/modules/lazy-images/assets/transparent.png';
 
 	/**
 	 * File cache path
 	 * @var string
 	 */
-	const LAZY_CACHE_PATH = 'LazySizes';
+	const LAZY_CACHE_PATH = 'lazy-images';
 	
 	protected $_image;
 	
@@ -90,8 +89,12 @@ class LazySizes
 		}
 		
 		// New template arrData
-		//$arrData['img']['src'] = 'dfg';	// debug
-		$arrData['img']['placeholder'] = 'data:image/png;base64,' .$transparentPlaceholder;
+		if ($arrData['img']['src'] == $arrData['img']['srcset'])
+		{
+			$arrData['img']['src'] = 'data:image/png;base64,' .$transparentPlaceholder;;
+			$arrData['img']['srcset'] .= ' '. $arrData['img']['width'] . 'w';
+		}
+
 		$objTemplate->setData($arrData);
 		
 	}
@@ -125,14 +128,13 @@ class LazySizes
 	/**
 	 * GD Base 64 png image
 	 * 
-	 * @param string $sourceImg
+	 * @author Kamil Kuzminski <kamil.kuzminski@codefog.pl>
+	 * @param integer $width
+	 * @param integer $height
 	 * @return string
 	 */
 	protected static function _gdTransparentImage($width, $height)
 	{
-		// For missing dimenssions we use global Contao dimensions
-		// TODO
-		
 		// Use the greatest common divisor to reduce the size of image
 		if (function_exists('gmp_gcd') && function_exists('gmp_strval')) {
 			$gcd = gmp_strval(gmp_gcd($width, $height));
