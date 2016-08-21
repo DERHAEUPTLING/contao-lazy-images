@@ -89,11 +89,10 @@ class LazySizes
 		}
 		
 		// New template arrData
-		if ($arrData['img']['src'] == $arrData['img']['srcset'])
-		{
-			$arrData['img']['src'] = 'data:image/png;base64,' .$transparentPlaceholder;;
-			$arrData['img']['srcset'] .= ' '. $arrData['img']['width'] . 'w';
-		}
+		$arrData['img']['placeholder'] = 'data:image/png;base64,' .$transparentPlaceholder;
+		$arrData['img']['responsive'] = ($arrData['img']['src'] == $arrData['img']['srcset'])
+			? false
+			: true;
 
 		$objTemplate->setData($arrData);
 		
