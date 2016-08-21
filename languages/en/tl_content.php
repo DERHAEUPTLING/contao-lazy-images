@@ -12,4 +12,4 @@
 
 
 
-$GLOBALS['TL_LANG']['tl_content']['lazyDisable'] = ['Disable Lazy Images', 'Lazy Images delays loading of images in long web pages. Images outside of viewport are not loaded until user scrolls to them.'];
+$GLOBALS['TL_LANG']['tl_content']['lazyDisable'] = ['Disable Lazy Images', 'Lazy Images delays loading of images that are outside the viewport. Disable this feature for contents that should be loaded immediate, like the logo.'];
