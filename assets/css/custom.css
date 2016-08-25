@@ -1,0 +1,16 @@
+/*
+ * lazy images
+ */
+.image_container img {
+	will-change: opacity;
+	transition: opacity .6s ease-in-out;
+}
+.lazyload,
+.lazyloading,
+.lazyload + figcaption,
+.lazyloading + figcaption {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+}

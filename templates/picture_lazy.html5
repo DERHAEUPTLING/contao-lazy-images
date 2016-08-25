@@ -1,4 +1,3 @@
-
 <?php if ($this->sources): ?>
   <picture>
     <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -7,20 +6,15 @@
     <?php endforeach; ?>
     <!--[if IE 9]></video><![endif]-->
 <?php endif; ?>
-
-<img
-  src="<?php echo ($this->img['responsive'] ? $this->img['src'] : $this->img['placeholder']) ?>"
-  <?php if ($this->img['responsive']): ?> srcset="<?php echo $this->img['placeholder'] ?>" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
-  <?php if ($this->img['responsive']): ?> data-srcset="<?php echo $this->img['srcset'] ?>" <?php endif; ?>
-  <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"'; ?>
-  <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
-  alt="<?php echo $this->alt ?>"
-  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
-  class="lazyload <?php echo $this->class ?>"
-  <?php echo $this->attributes ?>>
-
-<span></span>
-
+        <img src="<?php echo ($this->img['responsive'] ? $this->img['src'] : $this->img['placeholder']) ?>"
+          <?php if ($this->img['responsive']): ?> srcset="<?php echo $this->img['placeholder'] ?>" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
+          <?php if ($this->img['responsive']): ?> data-srcset="<?php echo $this->img['srcset'] ?>"<?php endif; ?>
+          <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"'; ?>
+          <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
+          alt="<?php echo $this->alt ?>"
+          <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
+          class="lazyload <?php echo $this->class ?>"
+          <?php echo $this->attributes ?>>
 <?php if ($this->sources): ?>
   </picture>
 <?php endif; ?>
