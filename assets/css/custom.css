@@ -1,9 +1,11 @@
 /*
  * lazy images
  */
-.image_container img {
+img.lazyload,
+img.lazyloading,
+img.lazyloaded {
 	will-change: opacity;
-	transition: opacity .6s ease-in-out;
+	transition: opacity .3s ease-in-out;
 }
 .lazyload,
 .lazyloading,
