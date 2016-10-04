@@ -5,7 +5,7 @@ img.lazyload,
 img.lazyloading,
 img.lazyloaded {
 	will-change: opacity;
-	transition: opacity .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 .lazyload,
 .lazyloading,
