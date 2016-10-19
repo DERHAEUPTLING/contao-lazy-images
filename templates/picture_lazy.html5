@@ -1,3 +1,10 @@
+<?php
+  
+  $GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.css|static';
+
+  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js|async';
+  
+?>
 <?php if ($this->sources): ?>
   <picture>
     <!--[if IE 9]><video style="display: none;"><![endif]-->
