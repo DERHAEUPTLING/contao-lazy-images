@@ -120,7 +120,7 @@ class LazySizes
 		$objFile = new \File($this->_getTargetPath(), true);
 		$imageContent = $objFile->getContent();
 		$objFile->delete();
-		
+
 		return base64_encode($imageContent);
 	}
 	
@@ -162,7 +162,17 @@ class LazySizes
 		return base64_encode($imageContent);
 	}
 	
+	/**
+	 * Purge the data
+	 */
+	public function purge()
+	{
+		$folder = new \Folder('system/cache/' .self::LAZY_CACHE_PATH);
+		$folder->purge();
 	
+		// Add a log entry
+		System::log('Purged the Lazy images cache', __METHOD__, TL_CRON);
+	}
 	
 	
 	

@@ -13,7 +13,7 @@
 
 if ('FE' === TL_MODE)
 {
-	$GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.css';
+	$GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.|static';
 	
 	$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js|async';
 	
@@ -25,3 +25,12 @@ if ('FE' === TL_MODE)
  */
 $GLOBALS['TL_CTE']['texts']['text'] = 'LazyContentText';
 $GLOBALS['TL_CTE']['media']['image'] = 'LazyContentImage';
+
+
+/**
+ * Purge jobs
+ */
+$GLOBALS['TL_PURGE']['folders']['lazy-images'] = [
+    'callback' => ['\LazySizes', 'purge'],
+    'affected' => ['system/cache/' . \LazySizes::LAZY_CACHE_PATH],
+];
