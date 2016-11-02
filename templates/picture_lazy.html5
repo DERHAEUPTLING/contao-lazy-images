@@ -1,8 +1,8 @@
 <?php
   
-  $GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.css'.($this->combineAssets ? '||static' : '');
+  $GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.css||static';
 
-  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js'.($this->combineAssets ? '|static' : '');
+  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js|static';
   
 ?>
 <?php if ($this->sources): ?>
