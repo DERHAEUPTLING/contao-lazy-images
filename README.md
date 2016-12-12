@@ -4,7 +4,7 @@ Contao Plugin for loading images with LazySizes.js while preventing reflow in th
 To prevent the reflow a transparent data:image placeholder with the correct aspect ratio is inlined.
 
 ## why preventing the reflow
-![Alt text](../screenshots/image.jpg?raw=true)
+![Alt text](../screenshot/image.jpg?raw=true)
 
 while the reflow is ugly and consumes computing power it also prevents issues with JavaScript layout solutions.
 
