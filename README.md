@@ -1,5 +1,5 @@
 # contao-lazy-images
-Contao Plugin for lazy loading images with LazySizes.js while preventing a reflow in the browser, whenever an image is loaded.
+Contao Plugin for lazy loading images with LazySizes.js while preventing the reflow in browsers, whenever an image is loaded.
 
 To prevent the reflow a transparent data:image placeholder with the correct aspect ratio is inlined.
 
