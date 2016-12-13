@@ -1,6 +1,9 @@
 # contao-lazy-images
 Contao Plugin for lazy loading images with LazySizes.js while preventing the reflow in browsers, whenever an image is loaded.
 
+Lazyloading images improves the website performance. Images do not block the window.onload event. 
+Visible images that are in the viewport are loaded first.
+
 To prevent the reflow a transparent data:image placeholder with the correct aspect ratio is inlined.
 
 ## why preventing the reflow
