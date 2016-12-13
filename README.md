@@ -16,4 +16,4 @@ Inlining a tiny placeholder prevents this issue from happening upfront.
 
 
 ## LazySizes
-[LazySizes](https://github.com/aFarkas/lazysizes) is a high performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.
+<a href="https://github.com/aFarkas/lazysizes" target="_blank">LazySizes</a> is a high performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.
