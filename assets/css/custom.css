@@ -24,6 +24,9 @@ img.lazyloaded {
 .intrinsic-ratio-wrapper {
 	display: inline-block;
 }
+.intrinsic-ratio-wrapper.width-rel {
+	width: 100%;
+}
 .intrinsic-ratio {
 	position: relative;
 	height: 0;
