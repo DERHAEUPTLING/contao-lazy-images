@@ -26,6 +26,7 @@ img.lazyloaded {
 }
 .intrinsic-ratio-wrapper.width-rel {
 	width: 100%;
+	max-width: 100%;
 }
 .intrinsic-ratio {
 	position: relative;
