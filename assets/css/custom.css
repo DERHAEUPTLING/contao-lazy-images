@@ -16,3 +16,19 @@ img.lazyloaded {
 .lazyloaded {
 	opacity: 1;
 }
+
+
+/*
+ *  Intrinsic Ratio
+ */
+.intrinsic-ratio-wrapper {
+	position: relative;
+	height: 0;
+}
+.intrinsic-ratio-wrapper > img,
+.intrinsic-ratio-wrapper > picture {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
