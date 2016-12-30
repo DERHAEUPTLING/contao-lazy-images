@@ -22,11 +22,14 @@ img.lazyloaded {
  *  Intrinsic Ratio
  */
 .intrinsic-ratio-wrapper {
+	display: inline-block;
+}
+.intrinsic-ratio {
 	position: relative;
 	height: 0;
 }
-.intrinsic-ratio-wrapper > img,
-.intrinsic-ratio-wrapper > picture {
+.intrinsic-ratio > img,
+.intrinsic-ratio > picture {
 	position: absolute;
 	top: 0;
 	left: 0;
