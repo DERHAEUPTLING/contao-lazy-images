@@ -2,10 +2,10 @@
   <file datatype="php" original="system/modules/lazy-images/languages/en/tl_content.php" source-language="en">
     <body>
       <trans-unit id="tl_content.lazyDisable.0">
-        <source>Lazy Images deaktivieren</source>
+        <source>Disable Lazy Images</source>
       </trans-unit>
       <trans-unit id="tl_content.lazyDisable.1">
-        <source>Lazy Images verzögert das Laden von Bildern, die außerhalb des Viewports liegen. Deaktivieren Sie dieses Feature für Inhalte die sofort geladen werden sollen, wie zum Beispiel das Logo.</source>
+        <source>Lazy Images delays loading of images that are outside the viewport. Disable this feature for contents that should be loaded immediate, like the logo.</source>
       </trans-unit>
     </body>
   </file>
