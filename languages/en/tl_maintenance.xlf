@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><xliff version="1.1">
+  <file datatype="php" original="system/modules/lazy-images/languages/en/tl_maintenance.php" source-language="en">
+    <body>
+      <trans-unit id="tl_maintenance_jobs.lazy-images.0">
+        <source>Purge the Lazy Images cache</source>
+      </trans-unit>
+      <trans-unit id="tl_maintenance_jobs.lazy-images.1">
+        <source>Removes the cached Lazy images files.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
