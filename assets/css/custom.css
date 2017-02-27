@@ -34,7 +34,7 @@ img.lazyloaded {
 }
 .intrinsic-ratio > img,
 .intrinsic-ratio > picture {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;

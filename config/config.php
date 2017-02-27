@@ -33,3 +33,10 @@ $GLOBALS['TL_PURGE']['folders']['lazy-images'] = [
     'callback' => ['\LazySizes', 'purge'],
     'affected' => ['system/cache/' . \LazySizes::LAZY_CACHE_PATH],
 ];
+
+
+if (!function_exists('gmp_gcd')) {
+	function gcd($a, $b) {
+		return ($a % $b) ? \gcd($b, $a % $b) : $b;
+	}
+}
