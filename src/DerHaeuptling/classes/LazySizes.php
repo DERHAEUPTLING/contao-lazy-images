@@ -51,39 +51,45 @@ class LazySizes
 		if (isset($arrData['lazyDisable']) && $arrData['lazyDisable'])
 			return;
 
-		// Try to load from mem cache	
-		$this->_image = $arrData['img'];
-		$this->_makeCacheKey();
 		
-		if (\Cache::has($this->_cacheKey))
+		if (\Config::get('lazyPlaceholder') != 'intrinsic')
 		{
-			$placeholder = \Cache::get($this->_cacheKey);
+			// Try to load from mem cache
+			$this->_image = $arrData['img'];
+			$this->_makeCacheKey();
 			
-		} else {
-			
-			// Try to load file cache
-			$objFile = new \File($this->_getTargetPath('.bin'), true);
-			
-			if ($objFile->exists() && $objFile->size)
+			if (\Cache::has($this->_cacheKey))
 			{
-				$placeholder = $objFile->getContent();
+				$placeholder = \Cache::get($this->_cacheKey);
 				
 			} else {
-
-				$placeholder = $this->_preparePlaceholder($arrData);
 				
-				// Store image to global cache
-				$objFile->write($placeholder);
-				$objFile->close();
+				// Try to load file cache
+				$objFile = new \File($this->_getTargetPath('.bin'), true);
+				
+				if ($objFile->exists() && $objFile->size)
+				{
+					$placeholder = $objFile->getContent();
+					
+				} else {
+	
+					$placeholder = $this->_preparePlaceholder($arrData);
+					
+					// Store image to global cache
+					$objFile->write($placeholder);
+					
+					$objFile->close();
+				}
+	
+				\Cache::set($cacheKey, $placeholder);
 			}
-
-			\Cache::set($cacheKey, $placeholder);
 		}
 
 		// Set Lazy template
 		$this->_initTemplate($objTemplate);
 		
 		// New template Data
+		$arrData['img']['intrinsicWidthType'] = \Config::get('lazyWidthType');
 		$arrData['img']['placeholder'] = 'data:image/png;base64,' .$placeholder;
 		$arrData['img']['responsive'] = ($arrData['img']['src'] == $arrData['img']['srcset'])
 			? false
@@ -109,20 +115,7 @@ class LazySizes
 			// Transparent image
 			case 'transparent' :
 
-				$placeWidth = $width;
-				if (\Config::get('lazyMaxWith') && $width > \Config::get('lazyMaxWith'))
-				{
-					$placeWidth = \Config::get('lazyMaxWith');
-					
-				} elseif (!\Config::get('lazyMaxWith')){
-					// Default transparent width
-					$placeWidth = 200;
-				}
-				
-				// Keep aspect ratio
-				$placeHeight = max($height * $placeWidth / $width, 1);
-
-				$placeholder = static::_gdTransparentImage($placeWidth, $placeHeight);
+				$placeholder = static::_gdTransparentImage($width, $height);
 				break;
 		
 			// Thumbnail image
@@ -147,9 +140,7 @@ class LazySizes
 			// Intrinsic ratio
 			case 'intrinsic' :
 		
-				$placeholder = static::_gdTransparentImage($width, $height);
-
-				$arrData['img']['intrinsicWidthType'] = \Config::get('lazyWidthType');
+				$placeholder = '';
 				break;
 		}
 
@@ -238,9 +229,26 @@ class LazySizes
 			$width = $width / $gcd;
 			$height = $height / $gcd;
 		}
+			
+		// Default maximum transparent width
+		$lazyMaxWith = (\Config::get('lazyMaxWith'))
+			? \Config::get('lazyMaxWith')
+			: 200;
 		
+		$placeWidth = $width;
+		$placeHeight = $height;
+		if ($placeWidth > $lazyMaxWith)
+		{
+			$placeWidth = $lazyMaxWith;
+			
+			// Keep aspect ratio
+			$placeHeight = max($height * $placeWidth / $width, 1);
+			$placeHeight = round($placeHeight);
+		}
+		
+
 		// Create the blank image
-		$image = imagecreatetruecolor($width, $height);
+		$image = imagecreatetruecolor($placeWidth, $placeHeight);
 		imagesavealpha($image, true);
 		$transparency = imagecolorallocatealpha($image, 0, 0, 0, 127);
 		imagefill($image, 0, 0, $transparency);
