@@ -1,0 +1,53 @@
+/**!
+ * lazy images
+ */
+img {
+	&.lazyload,
+	&.lazyloading,
+	&.lazyloaded {
+		will-change: opacity;
+		transition: all .3s ease-in-out;
+	}
+}
+.lazyload,
+.lazyloading,
+.lazyload + figcaption,
+.lazyloading + figcaption {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+}
+
+/**
+ *  Preview Thumbnail
+ */
+.lazyload.thumb,
+.lazyloading.thumb,
+.lazyloaded.thumb {
+	opacity: 1;
+}
+
+
+/**
+ *  Intrinsic Ratio
+ */
+.intrinsic-ratio-wrapper {
+	display: inline-block;
+	max-width: 100%;
+	&.width-rel {
+		width: 100%;
+	}
+}
+.intrinsic-ratio {
+	position: relative;
+	height: 0;
+	max-width: 100%;
+	> img,
+	> picture {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+}
