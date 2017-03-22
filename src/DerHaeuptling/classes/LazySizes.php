@@ -210,8 +210,8 @@ class LazySizes
 	 */
 	protected static function _gdTransparentImage($width, $height)
 	{		
-		$width = round($width);
-		$height = round($height);
+		$width = intval(round($width));
+		$height = intval(round($height));
 		
 		// Use the greatest common divisor to reduce the size of image
 		if (function_exists('gmp_gcd')) 
