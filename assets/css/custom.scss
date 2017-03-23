@@ -5,15 +5,10 @@ img {
 	&.lazyload,
 	&.lazyloading,
 	&.lazyloaded {
+		opacity: 0;
 		will-change: opacity;
 		transition: all .3s ease-in-out;
 	}
-}
-.lazyload,
-.lazyloading,
-.lazyload + figcaption,
-.lazyloading + figcaption {
-	opacity: 0;
 }
 .lazyloaded {
 	opacity: 1;
