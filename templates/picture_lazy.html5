@@ -1,4 +1,3 @@
-
 <?php if ($this->sources): ?>
   <picture>
     <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -18,7 +17,6 @@
 	  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
 	  class="lazyload thumb <?php echo $this->class; ?>"
 	  <?php echo $this->attributes; ?> />
-	<span></span>
 
 <?php if ($this->sources): ?>
   </picture>
