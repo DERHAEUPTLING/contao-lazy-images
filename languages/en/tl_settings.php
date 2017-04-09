@@ -26,7 +26,11 @@ $GLOBALS['TL_LANG']['tl_settings']['thumbnail'] = [
 	'A thumbnail placeholder image will be generated and inlined.',
 ];
 $GLOBALS['TL_LANG']['tl_settings']['intrinsic'] = [
-	'Intrinsic ratio',
+	'Intrinsic ratio (no placeholder)',
+	'The intrinsic ratio trick is used. While this results in the smallest HTML document size, this may conflict with existing CSS. For more information see http://alistapart.com/article/creating-intrinsic-ratios-for-video.',
+];
+$GLOBALS['TL_LANG']['tl_settings']['intrinsicThumb'] = [
+	'Intrinsic ratio + thumbnail placeholder',
 	'The intrinsic ratio trick is used. While this results in the smallest HTML document size, this may conflict with existing CSS. For more information see http://alistapart.com/article/creating-intrinsic-ratios-for-video.',
 ];
 $GLOBALS['TL_LANG']['tl_settings']['lazyMaxWith'] = [

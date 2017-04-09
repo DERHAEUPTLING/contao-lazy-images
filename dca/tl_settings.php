@@ -17,6 +17,7 @@ $GLOBALS['TL_DCA']['tl_settings']['palettes']['__selector__'][] = 'lazyPlacehold
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_transparent'] = 'lazyMaxWith';
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_thumbnail'] = 'lazyThumbnailWidth';
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsic'] = 'lazyWidthType';
+$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsicThumb'] = 'lazyWidthType';
 
 
 /**
@@ -28,7 +29,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields'] = array_merge($GLOBALS['TL_DCA']['tl
 	(
 		'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['lazyPlaceholder'],
 		'inputType'               => 'select',
-		'options'                 => array('transparent', 'thumbnail', 'intrinsic'),
+		'options'                 => array('transparent', 'thumbnail', 'intrinsic', 'intrinsicThumb'),
 		'eval'                    => array('chosen'=>true, 'submitOnChange'=>true, 'helpwizard'=>true),
 		'reference'				  => &$GLOBALS['TL_LANG']['tl_settings'],
 		'save_callback' => array

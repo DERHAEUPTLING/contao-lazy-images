@@ -30,6 +30,7 @@ ClassLoader::addClasses(array
 */
 TemplateLoader::addFiles(array
 (
-	'picture_lazy'      	=> 'system/modules/lazy-images/templates',
-	'picture_intrinsic'      => 'system/modules/lazy-images/templates'	
+	'picture_lazy'      		=> 'system/modules/lazy-images/templates',
+	'picture_intrinsic'      	=> 'system/modules/lazy-images/templates',
+	'picture_intrinsic_thumb'	=> 'system/modules/lazy-images/templates'
 ));

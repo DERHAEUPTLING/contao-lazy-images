@@ -138,6 +138,16 @@ class LazySizes
 		
 				$placeholder = 'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 				break;
+
+			// Intrinsic ratio + thumbnail placeholder
+			case 'intrinsicThumb' :
+				
+				// Default thumbnail width
+				$width = 50;
+				$height = null;
+				
+				$placeholder = $this->_contaoThumbnailImage($width, $height);
+				break;
 		}
 
 		return $placeholder;
@@ -151,6 +161,7 @@ class LazySizes
 		switch (\Config::get('lazyPlaceholder'))
 		{
 			case 'thumbnail' :
+			case 'intrinsicThumb' :
 				$src = $this->_image['src'];
 				return $this->_cacheKey = self::LAZY_CACHE_KEY. '_'. md5($src). '_'. $width. '_'. $height;
 
@@ -166,6 +177,11 @@ class LazySizes
 			// Intrinsic Template
 			case 'intrinsic' :
 				$objTemplate->setName('picture_intrinsic');
+				break;
+				
+			// Intrinsic Template with thumbnail
+			case 'intrinsicThumb' :
+				$objTemplate->setName('picture_intrinsic_thumb');
 				break;
 				
 			default:
