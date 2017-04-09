@@ -9,7 +9,7 @@
 
 	<img
 	  src="<?php echo ($this->img['responsive'] ? $this->img['src'] : $this->img['placeholder']) ?>"
-	  <?php if ($this->img['responsive']): ?> srcset="<?php echo $this->img['placeholder'] ?>" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
+	  <?php if ($this->img['responsive']): ?> srcset="<?php echo $this->img['placeholder'] ?> <?php echo $this->img['width'] ?>w" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
 	  <?php if ($this->img['responsive']): ?> data-srcset="<?php echo $this->img['srcset'] ?>" <?php endif; ?>
 	  <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"'; ?>
 	  <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>

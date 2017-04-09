@@ -50,39 +50,35 @@ class LazySizes
 		// Check if is LazyLoader disabled
 		if (isset($arrData['lazyDisable']) && $arrData['lazyDisable'])
 			return;
-
-		
-		if (\Config::get('lazyPlaceholder') != 'intrinsic')
-		{
-			// Try to load from mem cache
-			$this->_image = $arrData['img'];
-			$this->_makeCacheKey();
 			
-			if (\Cache::has($this->_cacheKey))
+		// Try to load from mem cache
+		$this->_image = $arrData['img'];
+		$this->_makeCacheKey();
+		
+		if (\Cache::has($this->_cacheKey))
+		{
+			$placeholder = \Cache::get($this->_cacheKey);
+			
+		} else {
+			
+			// Try to load file cache
+			$objFile = new \File($this->_getTargetPath('.bin'), true);
+			
+			if ($objFile->exists() && $objFile->size)
 			{
-				$placeholder = \Cache::get($this->_cacheKey);
+				$placeholder = $objFile->getContent();
 				
 			} else {
+
+				$placeholder = $this->_preparePlaceholder();
 				
-				// Try to load file cache
-				$objFile = new \File($this->_getTargetPath('.bin'), true);
+				// Store image to global cache
+				$objFile->write($placeholder);
 				
-				if ($objFile->exists() && $objFile->size)
-				{
-					$placeholder = $objFile->getContent();
-					
-				} else {
-	
-					$placeholder = $this->_preparePlaceholder($arrData);
-					
-					// Store image to global cache
-					$objFile->write($placeholder);
-					
-					$objFile->close();
-				}
-	
-				\Cache::set($cacheKey, $placeholder);
+				$objFile->close();
 			}
+
+			\Cache::set($cacheKey, $placeholder);
 		}
 
 		// Set Lazy template
@@ -105,7 +101,7 @@ class LazySizes
 	 * @param array $arrData
 	 * @return string
 	 */
-	protected function _preparePlaceholder(&$arrData)
+	protected function _preparePlaceholder()
 	{
 		$width = $this->_image['width'];
 		$height = $this->_image['height'];
@@ -140,7 +136,7 @@ class LazySizes
 			// Intrinsic ratio
 			case 'intrinsic' :
 		
-				$placeholder = '';
+				$placeholder = 'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 				break;
 		}
 
