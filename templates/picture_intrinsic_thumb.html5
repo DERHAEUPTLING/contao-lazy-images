@@ -2,7 +2,7 @@
 	<div class="intrinsic-ratio" style="<?php echo ($this->img['intrinsicWidthType'] ? 'width: ' . $this->img['width'] . 'px; ' : ''); echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;">
 	
 		<!-- preview thumbnail -->
-		<img src="<?php echo $this->img['placeholder'] ?>" width="<?php echo $this->img['width'] ?>" height="<?php echo $this->img['height'] ?>" class="thumb">
+		<img src="<?php echo $this->img['placeholder'] ?>" width="<?php echo $this->img['width'] ?>" height="<?php echo $this->img['height'] ?>" alt class="thumb">
 	
 		<?php if ($this->sources): ?>
 		  <picture>
