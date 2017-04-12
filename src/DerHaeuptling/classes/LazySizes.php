@@ -113,9 +113,12 @@ class LazySizes
 
 				$placeholder = static::_gdTransparentImage($width, $height);
 				break;
-		
+
 			// Thumbnail image
 			case 'thumbnail' :
+				
+			// Intrinsic ratio + thumbnail placeholder
+			case 'intrinsicThumb' :
 		
 				// Keep aspect ratio
 				$height = null;
@@ -139,15 +142,6 @@ class LazySizes
 				$placeholder = 'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 				break;
 
-			// Intrinsic ratio + thumbnail placeholder
-			case 'intrinsicThumb' :
-				
-				// Default thumbnail width
-				$width = 50;
-				$height = null;
-				
-				$placeholder = $this->_contaoThumbnailImage($width, $height);
-				break;
 		}
 
 		return $placeholder;
