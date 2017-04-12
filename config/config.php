@@ -3,7 +3,7 @@
 /**
  * Lazy Images for Contao Open Source CMS
  *
- * @copyright  DerHaeuptling 2016
+ * @copyright  DerHaeuptling 2017
  * @author     Martin Schwenzer <mail@derhaeuptling.com>
  * @author     Sebastijan Ribarić <sebastijan.ribaric@media-8.org>
  * @package    Lazy Images
@@ -12,7 +12,10 @@
 
 
 if ('FE' === TL_MODE)
-{	
+{
+	$GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.scss|static';	
+	$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js|async';
+	
 	$GLOBALS['TL_HOOKS']['parseTemplate'][] = array('\LazySizes', 'init');
 }
 
@@ -30,3 +33,10 @@ $GLOBALS['TL_PURGE']['folders']['lazy-images'] = [
     'callback' => ['\LazySizes', 'purge'],
     'affected' => ['system/cache/' . \LazySizes::LAZY_CACHE_PATH],
 ];
+
+
+if (!function_exists('gmp_gcd')) {
+	function gcd($a, $b) {
+		return ($a % $b) ? \gcd($b, $a % $b) : $b;
+	}
+}

@@ -3,7 +3,7 @@
 /**
  * Lazy Images for Contao Open Source CMS
  *
- * @copyright  DerHaeuptling 2016
+ * @copyright  DerHaeuptling 2017
  * @author     Martin Schwenzer <mail@derhaeuptling.com>
  * @author     Sebastijan Ribarić <sebastijan.ribaric@media-8.org>
  * @package    Lazy Images
@@ -17,11 +17,11 @@
 ClassLoader::addClasses(array
 (
 	// Classes
-	'Contao\LazySizes'            => 'system/modules/lazy-images/library/DerHaeuptling/classes/LazySizes.php',
+	'Contao\LazySizes'				=> 'system/modules/lazy-images/src/DerHaeuptling/classes/LazySizes.php',
 
 	// Elements
-	'Contao\LazyContentText'            => 'system/modules/lazy-images/elements/LazyContentText.php',
-	'Contao\LazyContentImage'           => 'system/modules/lazy-images/elements/LazyContentImage.php'
+	'Contao\LazyContentText'		=> 'system/modules/lazy-images/elements/LazyContentText.php',
+	'Contao\LazyContentImage'		=> 'system/modules/lazy-images/elements/LazyContentImage.php'
 ));
 
 
@@ -30,6 +30,7 @@ ClassLoader::addClasses(array
 */
 TemplateLoader::addFiles(array
 (
-	'picture_lazy'      => 'system/modules/lazy-images/templates'
-		
+	'picture_lazy'      		=> 'system/modules/lazy-images/templates',
+	'picture_intrinsic'      	=> 'system/modules/lazy-images/templates',
+	'picture_intrinsic_thumb'	=> 'system/modules/lazy-images/templates'
 ));
