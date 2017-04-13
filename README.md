@@ -10,7 +10,7 @@ Several options are available in the generic contao settings:
 * Transparent placeholder <br/>
 a tiny transparent data:image placeholder with the correct aspect ratio is inlined.
 * Thumbnail placeholder<br/>
-a tumbnail data:image placeholder with the correct aspect ratio is inlined.
+a thumbnail data:image placeholder with the correct aspect ratio is inlined.
 * Intrinsic ratio (no placeholder needed) <br/>
 An intrinsic ratio container is created to preserve the correct dimenions for the loading image <br/>
 This is the fastest and the most correct approach. As intrinsic ratios relay on CSS it may conflict with your theme.
