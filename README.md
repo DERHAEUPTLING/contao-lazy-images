@@ -4,7 +4,7 @@ Contao Plugin for lazyloading images with LazySizes.js without the disturbing re
 Lazyloading images improves the website performance. Images no longer block the window.onload event. <br>
 Visible images in the viewport are loaded first and therefore faster.
 
-To prevent the website reflow whenever an image is loaded a the placeholder protects the place the image would take.
+To prevent the website reflow whenever an image is loaded a the configurable placeholder protects the place the image would take.
 
 Several options are available in the generic contao settings:
 * Transparent placeholder <br/>
