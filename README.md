@@ -19,7 +19,7 @@ This is the fastest and the most correct approach. As intrinsic ratios relay on 
 The sizes of the placeholders and thumbnails can be adjusted.
 
 
-Hint: while the picture syntax will work as normal, it is not supported by this pluing yet.
+Hint: while the picture syntax will work as normal, it is not supported by this plugin yet.
 
 
 ## Why preventing the reflow
