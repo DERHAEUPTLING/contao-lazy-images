@@ -14,7 +14,7 @@
 		<?php endif; ?>
 		
 			<img
-			  src="<?php echo ($this->img['responsive'] ? $this->img['src'] : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1w') ?>"
+			  src="<?php echo ($this->img['responsive'] ? $this->img['src'] : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==') ?>"
 			  <?php if ($this->img['responsive']): ?> srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1w" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
 			  <?php if ($this->img['responsive']): ?> data-srcset="<?php echo $this->img['srcset'] ?>" <?php endif; ?>
 			  <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"'; ?>

@@ -7,7 +7,7 @@
 .lazyloaded {
 	opacity: 0;
 	will-change: opacity;
-	transition: all .3s ease-out;
+	transition: all .3s ease-in;
 }
 .lazyloaded {
 	opacity: 1;

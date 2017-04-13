@@ -17,7 +17,7 @@ $GLOBALS['TL_DCA']['tl_settings']['palettes']['__selector__'][] = 'lazyPlacehold
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_transparent'] = 'lazyMaxWith';
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_thumbnail'] = 'lazyThumbnailWidth';
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsic'] = 'lazyWidthType';
-$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsicThumb'] = 'lazyWidthType,lazyThumbnailWidth';
+$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsicThumb'] = 'lazyThumbnailWidth,lazyWidthType';
 
 
 /**
