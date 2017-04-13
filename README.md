@@ -6,12 +6,17 @@ Visible images in the viewport are loaded first and therefore faster.
 
 To prevent the website reflow whenever an image is loaded a the placeholder protects the place the image would take.
 
-Several Options are available:
-- Transparent placeholder
+Several options are available in the generic contao settings:
+* Transparent placeholder <br/>
 a tiny transparent data:image placeholder with the correct aspect ratio is inlined.
-- Thumbnail placeholder
-- Intrinsic ratio (no placeholder)
-- Intrinsic ratio + thumbnail placeholder
+* Thumbnail placeholder<br/>
+a tumbnail data:image placeholder with the correct aspect ratio is inlined.
+* Intrinsic ratio (no placeholder needed) <br/>
+An intrinsic ratio container is created to preserve the correct dimenions for the loading image <br/>
+This is the fastest and the most correct approach. As intrinsic ratios relay on CSS it may conflict with your theme.
+* Intrinsic ratio + thumbnail placeholder
+
+The sizes of the placeholders and thumbnails can be adjusted.
 
 
 
