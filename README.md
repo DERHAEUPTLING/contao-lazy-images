@@ -12,7 +12,7 @@ a tiny transparent data:image placeholder with the correct aspect ratio is inlin
 * Thumbnail placeholder<br/>
 a thumbnail data:image placeholder with the correct aspect ratio is inlined.
 * Intrinsic ratio (no placeholder needed) <br/>
-An intrinsic ratio container is created to preserve the correct dimenions for the loading image <br/>
+An intrinsic ratio container is created to preserve the correct dimenions for the loading image. <br/>
 This is the fastest and the most correct approach. As intrinsic ratios relay on CSS it may conflict with your theme.
 * Intrinsic ratio + thumbnail placeholder
 
