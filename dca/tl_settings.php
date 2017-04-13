@@ -47,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_settings']['fields'] = array_merge($GLOBALS['TL_DCA']['tl
 	(
 		'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['lazyThumbnailWidth'],
 		'inputType'               => 'text',
-		'eval'                    => array('tl_class'=>'w50')
+		'eval'                    => array()
 	),
 	'lazyWidthType' => array
 	(
