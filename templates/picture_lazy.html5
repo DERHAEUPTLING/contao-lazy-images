@@ -2,7 +2,7 @@
   <picture>
     <!--[if IE 9]><video style="display: none;"><![endif]-->
     <?php foreach ($this->sources as $source): ?>
-      <source srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
+      <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1w" data-srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
     <?php endforeach; ?>
     <!--[if IE 9]></video><![endif]-->
 <?php endif; ?>
