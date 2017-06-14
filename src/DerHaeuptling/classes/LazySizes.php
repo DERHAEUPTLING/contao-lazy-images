@@ -46,7 +46,11 @@ class LazySizes
 		// No images to render
 		if (empty($arrData['img']))
 			return;
-
+		
+		// Skip flexible SVGs
+		if (empty($arrData['img']['width']) || empty($arrData['img']['height']))
+			return;
+		
 		// Check if is LazyLoader disabled
 		if (isset($arrData['lazyDisable']) && $arrData['lazyDisable'])
 			return;
