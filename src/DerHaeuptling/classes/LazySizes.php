@@ -62,9 +62,10 @@ class LazySizes
 		$this->_image = $arrData['img'];
 		$this->_makeCacheKey();
 			
+		// Image element
 		$this->_generate($arrData['img']);
 
-		// Custom procession for each "sources"
+		// Custom processing for each "sources"
 		if (isset($arrData['sources']) && count($arrData['sources']))
 			foreach ($arrData['sources'] as &$source)
 			{
