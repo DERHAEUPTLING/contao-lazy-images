@@ -54,51 +54,64 @@ class LazySizes
 		// Check if is LazyLoader disabled
 		if (isset($arrData['lazyDisable']) && $arrData['lazyDisable'])
 			return;
-			
+	
+		// Set Lazy template
+		$this->_initTemplate($objTemplate);
+						
 		// Try to load from mem cache
 		$this->_image = $arrData['img'];
 		$this->_makeCacheKey();
-		
-		if (\Cache::has($this->_cacheKey))
-		{
-			$placeholder = \Cache::get($this->_cacheKey);
 			
-		} else {
-			
-			// Try to load file cache
-			$objFile = new \File($this->_getTargetPath('.bin'), true);
-			
-			if ($objFile->exists() && $objFile->size)
+		$this->_generate($arrData['img']);
+
+		// Custom procession for each "sources"
+		if (isset($arrData['sources']) && count($arrData['sources']))
+			foreach ($arrData['sources'] as &$source)
 			{
-				$placeholder = $objFile->getContent();
-				
-			} else {
-
-				$placeholder = $this->_preparePlaceholder();
-				
-				// Store image to global cache
-				$objFile->write($placeholder);
-				
-				$objFile->close();
+				$this->_image = $source;
+				$this->_makeCacheKey();	
+				$this->_generate($source);
 			}
-
-			\Cache::set($cacheKey, $placeholder);
-		}
-
-		// Set Lazy template
-		$this->_initTemplate($objTemplate);
-		
-		// New template Data
-		$arrData['img']['lazyType'] = \Config::get('lazyPlaceholder');
-		$arrData['img']['intrinsicWidthType'] = \Config::get('lazyWidthType');
-		$arrData['img']['placeholder'] = 'data:image/png;base64,' .$placeholder;
-		$arrData['img']['responsive'] = ($arrData['img']['src'] == $arrData['img']['srcset'])
-			? false
-			: true;
 
 		$objTemplate->setData($arrData);
 	}
 
+	protected function _generate(&$arrImage)
+	{
+		if (\Cache::has($this->_cacheKey))
+		{
+			$placeholder = \Cache::get($this->_cacheKey);
+				
+		} else {
+				
+			// Try to load file cache
+			$objFile = new \File($this->_getTargetPath('.bin'), true);
+				
+			if ($objFile->exists() && $objFile->size)
+			{
+				$placeholder = $objFile->getContent();
+		
+			} else {
+		
+				$placeholder = $this->_preparePlaceholder();
+		
+				// Store image to global cache
+				$objFile->write($placeholder);
+		
+				$objFile->close();
+			}
+		
+			\Cache::set($cacheKey, $placeholder);
+		}
+		
+		// New template Data
+		$arrImage['lazyType'] = \Config::get('lazyPlaceholder');
+		$arrImage['intrinsicWidthType'] = \Config::get('lazyWidthType');
+		$arrImage['placeholder'] = 'data:image/png;base64,' .$placeholder;
+		$arrImage['responsive'] = ($arrImage['src'] == $arrImage['srcset'])
+			? false
+			: true;
+	}
 	
 	/**
 	 * Create placeholder image
@@ -275,8 +288,7 @@ class LazySizes
 		
 		return base64_encode($imageContent);
 	}
-	
-	
+		
 	/**
 	 * Purge Lazy Images cache
 	 */
