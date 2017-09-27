@@ -189,14 +189,12 @@ class LazySizes
 		{
 			// Intrinsic Template
 			case 'intrinsic' :
-				$objTemplate->setName('picture_intrinsic');
-				break;
 				
 			// Intrinsic Template with thumbnail
 			case 'intrinsicThumb' :
-				$objTemplate->setName('picture_intrinsic_thumb');
+				$objTemplate->setName('picture_intrinsic');
 				break;
-				
+
 			default:
 				$objTemplate->setName('picture_lazy');
 		}
