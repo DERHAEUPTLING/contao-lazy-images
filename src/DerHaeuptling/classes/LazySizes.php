@@ -34,7 +34,9 @@ class LazySizes
 		
 	protected $_image;
 	
-	protected $_cacheKey;
+	protected static $_cacheKey = '';
+	
+	protected static $_intrinsicStyle = '';
 	
 	public function init($objTemplate)
 	{
@@ -56,7 +58,7 @@ class LazySizes
 			return;
 	
 		// Set Lazy template
-		$this->_initTemplate($objTemplate);
+		self::_initTemplate($objTemplate);
 						
 		// Try to load from mem cache
 		$this->_image = $arrData['img'];
@@ -64,7 +66,7 @@ class LazySizes
 			
 		// Image element
 		$this->_generate($arrData['img']);
-
+		
 		// Custom processing for each "sources"
 		if (isset($arrData['sources']) && count($arrData['sources']))
 			foreach ($arrData['sources'] as &$source)
@@ -72,21 +74,27 @@ class LazySizes
 				$this->_image = $source;
 				$this->_makeCacheKey();	
 				$this->_generate($source);
+				self::_intrinsicStyles($source);
 			}
 
+		// Intrinsic style
+		self::_intrinsicStyles($arrData['img']);
+		if (strlen(self::$_intrinsicStyle))
+			$arrData['style'] = self::$_intrinsicStyle;
+		
 		$objTemplate->setData($arrData);
 	}
 
 	protected function _generate(&$arrImage)
 	{
-		if (\Cache::has($this->_cacheKey))
+		if (\Cache::has(self::$_cacheKey))
 		{
-			$placeholder = \Cache::get($this->_cacheKey);
+			$placeholder = \Cache::get(self::$_cacheKey);
 				
 		} else {
 				
 			// Try to load file cache
-			$objFile = new \File($this->_getTargetPath('.bin'), true);
+			$objFile = new \File(self::_getTargetPath('.bin'), true);
 				
 			if ($objFile->exists() && $objFile->size)
 			{
@@ -112,6 +120,11 @@ class LazySizes
 		$arrImage['responsive'] = ($arrImage['src'] == $arrImage['srcset'])
 			? false
 			: true;
+		
+		// Intrinsic Style
+		if (strlen(self::$_intrinsicStyle))
+			$arrImage['style'] = self::$_intrinsicStyle;
+
 	}
 	
 	/**
@@ -176,14 +189,15 @@ class LazySizes
 			case 'thumbnail' :
 			case 'intrinsicThumb' :
 				$src = $this->_image['src'];
-				return $this->_cacheKey = self::LAZY_CACHE_KEY. '_'. md5($src). '_'. $width. '_'. $height;
+				self::$_cacheKey = self::LAZY_CACHE_KEY. '_'. md5($src). '_'. $width. '_'. $height;
+				break;
 
 			default:
-				return $this->_cacheKey = self::LAZY_CACHE_KEY. $width. '_'. $height;
+				self::$_cacheKey = self::LAZY_CACHE_KEY. $width. '_'. $height;
 		}
 	}
 		
-	protected function _initTemplate(&$objTemplate)
+	protected static function _initTemplate(&$objTemplate)
 	{
 		switch (\Config::get('lazyPlaceholder'))
 		{
@@ -200,11 +214,39 @@ class LazySizes
 		}
 	}
 	
-	protected function _getTargetPath($extension='.png')
+	protected static function _getTargetPath($extension='.png')
 	{
-		return 'system/cache/' .self::LAZY_CACHE_PATH. '/' . $this->_cacheKey .$extension;
+		return 'system/cache/' .self::LAZY_CACHE_PATH. '/' . self::$_cacheKey .$extension;
 	}
 
+	protected static function _intrinsicStyles(&$img)
+	{
+		if ('intrinsic' != \Config::get('lazyPlaceholder'))
+			return;
+
+		$img['lazy_id'] = 'lazy'. md5($img['src']);
+		$imgDivisor = 100 * $img['height'] / $img['width'];
+		
+		$srcSet = explode(', ', $img['srcset']);			
+		foreach ($srcSet as $srcEle)
+		{
+			list($_imgSrc, $_imgWidth) = explode(' ', $srcEle);
+			
+			if (empty($_imgWidth))
+				continue;
+			
+			$_imgWidth = str_replace('w', '', $_imgWidth);
+			$_imgHeight = $_imgWidth*$imgDivisor;
+
+			self::$_intrinsicStyle .= sprintf('@media (max-width: %spx) { .%s {padding-bottom: %s',
+				$_imgWidth,
+				$img['lazy_id'],
+				(($_imgHeight / $_imgWidth). '%;}} ')
+			);
+		}
+	}
+	
+	
 	/**
 	 * Contao Base 64 image
 	 * 

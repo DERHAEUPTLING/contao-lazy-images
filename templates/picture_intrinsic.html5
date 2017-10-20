@@ -1,11 +1,12 @@
+
+<?php if ($this->style): ?><style><?php echo $this->style; ?></style><?php endif; ?>
 <div class="intrinsic-ratio-wrapper<?php echo ($this->img['intrinsicWidthType'] ? '' : ' width-rel'); ?>">
 	<div class="intrinsic-ratio" style="<?php echo ($this->img['intrinsicWidthType'] ? 'width: ' . $this->img['width'] . 'px; ' : ''); echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;">
-	
 		<?php if ($this->sources): ?>
 		  <picture>
 		    <!--[if IE 9]><video style="display: none;"><![endif]-->
 		    <?php foreach ($this->sources as $source): ?>
-		      <source srcset="<?php echo $source['placeholder'] ?> <?php echo $source['width'] ?>w" data-srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
+		      <source <?php if ($this->img['lazy_id']) echo 'class="'.$source['lazy_id'].'"'; ?> srcset="<?php echo $source['placeholder'] ?> <?php echo $source['width'] ?>w" data-srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
 		    <?php endforeach; ?>
 		    <!--[if IE 9]></video><![endif]-->
 		<?php endif; ?>
@@ -18,7 +19,7 @@
 			  <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
 			  alt="<?php echo $this->alt; ?>"
 			  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
-			  class="<?php if ($this->img['lazyType'] == 'intrinsicThumb') echo 'thumb '; ?>lazyload <?php echo $this->class; ?>"
+			  class="<?php if ($this->img['lazyType'] == 'intrinsicThumb') echo 'thumb '; ?>lazyload<?php if ($this->img['lazy_id']) echo ' '.$this->img['lazy_id']; ?> <?php echo $this->class; ?>"
 			  <?php echo $this->attributes; ?> />
 				
 		<?php if ($this->sources): ?>
