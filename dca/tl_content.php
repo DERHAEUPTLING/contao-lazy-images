@@ -26,4 +26,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['lazyDisable'] = array
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addImage'] = str_replace(',floating', ',floating,lazyDisable', $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addImage']);
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_content']['palettes']['image'] = str_replace(',caption;', ',caption,lazyDisable;', $GLOBALS['TL_DCA']['tl_content']['palettes']['image']);
+if (false === strpos(',caption;', $GLOBALS['TL_DCA']['tl_content']['palettes']['image']))
+	$GLOBALS['TL_DCA']['tl_content']['palettes']['image'] = str_replace(',imagemargin,', ',lazyDisable,imagemargin,', $GLOBALS['TL_DCA']['tl_content']['palettes']['image']);	
+else
+	$GLOBALS['TL_DCA']['tl_content']['palettes']['image'] = str_replace(',caption;', ',caption,lazyDisable;', $GLOBALS['TL_DCA']['tl_content']['palettes']['image']);
