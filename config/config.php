@@ -14,7 +14,7 @@
 if ('FE' === TL_MODE)
 {
 	$GLOBALS['TL_CSS'][] = 'system/modules/lazy-images/assets/css/custom.scss|static';	
-	$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/lazy-images/assets/lazysizes-gh-pages/lazysizes.min.js|async';
+	$GLOBALS['TL_HEAD'][] = '<script src="system/modules/lazy-images/assets/lazysizes/lazysizes.min.js" defer></script>';
 	
 	$GLOBALS['TL_HOOKS']['parseTemplate'][] = array('\LazySizes', 'init');
 }
