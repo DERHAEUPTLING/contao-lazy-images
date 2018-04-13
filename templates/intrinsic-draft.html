@@ -1,0 +1,122 @@
+
+<style>
+    /** Description
+
+        In the picture element each source can have a different aspect ratio.
+        What source is used, is defined by Media Queries. So we need to change padding-bottom by Media Query too.
+
+        Add the following styles to CSS assets, that will be combined.
+        Add the following styles for each used "image sizes" setting from the contao backend only once.
+        For example once for .imageSize_ID6, which will describe the Image Sizes with ID6 (see screenshot "1_imageSizes-ID6.png").
+
+
+
+        Changes described in detail:
+
+        1.) remove style=".." from the div.intrinsic-ratio
+            the padding is now defined in the CSS block
+        1.1) add CSS Class imageSize_ID6 instead
+
+        2.) remove class="lazy8595e3705cb9f0c29fe2c962f7883c9b" from source & img tags.
+            we have to detect by Media Query, not by class.
+        
+        3.) add a Media query for each defined media query (see screenshot "2_imageSizes Media query.png")
+        3.1) define each specific padding bottom 
+
+
+        the following is an expamle CSS code for the Image Size form Backend with ID6
+        (see screenshot)
+    */
+
+    .imageSize_ID6 {
+        padding-bottom: ???%;
+    }
+
+    @media (max-width: 480px) {
+        .imageSize_ID6 {
+            padding-bottom: ???%;
+        }
+    }
+    @media (max-width: 900px) {
+        .imageSize_ID6 {
+            padding-bottom: ???%;
+        }
+    }
+
+
+
+</style>
+
+
+<!-- new Output -->
+
+<!-- css added to assets -->
+<div class="ce_image first block">
+    <figure class="image_container" itemscope itemtype="http://schema.org/ImageObject">
+        
+        <div class="intrinsic-ratio-wrapper width-rel">
+            <div class="intrinsic-ratio imageSize_ID6">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    <source srcset="data:image/png;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 300w" data-srcset="assets/images/c/stockphoto-04-e1826c7b.jpg 300w, assets/images/9/stockphoto-04-f4df399c.jpg 450w" 
+                    sizes="100vw" 
+                    media="(max-width: 480px)">
+                    <source srcset="data:image/png;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 900w" data-srcset="assets/images/9/stockphoto-04-6714343d.jpg 900w, assets/images/3/stockphoto-04-833ebe46.jpg 720w" 
+                    sizes="100vw" 
+                    media="(max-width: 900px)">
+                    <!--[if IE 9]></video><![endif]-->
+                    
+                    <img
+                    src="files/cto_layout/stockphotos-free/stockphoto-04.jpg"
+                    srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1w"   
+                    data-srcset="files/cto_layout/stockphotos-free/stockphoto-04.jpg 3000w, assets/images/a/stockphoto-04-bcdeaa43.jpg 2250w" 	sizes="100vw"		width="3000" 
+                    height="2000"			  
+                    alt=""
+                    class="lazyload"
+                    />
+                </picture>
+            </div>
+        </div>
+
+    </figure>
+</div>
+
+
+
+
+
+<!-- old Output -->
+<div class="ce_image first block">
+    <figure class="image_container" itemscope itemtype="http://schema.org/ImageObject">
+
+        <style>@media (max-width: 300px) { .lazy8595e3705cb9f0c29fe2c962f7883c9b {padding-bottom: 160%;}} @media (max-width: 450px) { .lazy8595e3705cb9f0c29fe2c962f7883c9b {padding-bottom: 160%;}} @media (max-width: 900px) { .lazy2cfe5f1589b9a798c84188876bc3354a {padding-bottom: 27.777777777778%;}} @media (max-width: 720px) { .lazy2cfe5f1589b9a798c84188876bc3354a {padding-bottom: 27.777777777778%;}} @media (max-width: 3000px) { .lazyd6f7b92189331c5301849dfca3b7573d {padding-bottom: 66.666666666667%;}} @media (max-width: 2250px) { .lazyd6f7b92189331c5301849dfca3b7573d {padding-bottom: 66.666666666667%;}} </style>
+        
+        <div class="intrinsic-ratio-wrapper width-rel">
+            <div class="intrinsic-ratio" style="padding-bottom: 66.666666666667%;">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    <source class="lazy8595e3705cb9f0c29fe2c962f7883c9b" 
+                    srcset="data:image/png;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 300w" data-srcset="assets/images/c/stockphoto-04-e1826c7b.jpg 300w, assets/images/9/stockphoto-04-f4df399c.jpg 450w" 
+                    sizes="100vw" 
+                    media="(max-width: 480px)">
+                    <source class="lazy2cfe5f1589b9a798c84188876bc3354a" 
+                    srcset="data:image/png;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 900w" data-srcset="assets/images/9/stockphoto-04-6714343d.jpg 900w, assets/images/3/stockphoto-04-833ebe46.jpg 720w" 
+                    sizes="100vw" 
+                    media="(max-width: 900px)">
+                    <!--[if IE 9]></video><![endif]-->
+                    
+                    <img
+                    src="files/cto_layout/stockphotos-free/stockphoto-04.jpg"
+                    srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1w"   
+                    data-srcset="files/cto_layout/stockphotos-free/stockphoto-04.jpg 3000w, assets/images/a/stockphoto-04-bcdeaa43.jpg 2250w" 	
+                    sizes="100vw"		width="3000" 
+                    height="2000"			  
+                    alt=""
+                    class="lazyload lazyd6f7b92189331c5301849dfca3b7573d "
+                    />
+                </picture>
+            </div>
+        </div>
+
+    </figure>
+</div>
