@@ -17,7 +17,7 @@
 
 <div class="intrinsic-ratio-wrapper">
 	<div class="intrinsic-ratio <?php if ($this->sources) { echo $this->img['lazy_id']; } ?>"<?php if (!$this->sources): ?>
-			style="<?php echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;"><?php endif; ?>>
+			style="<?php echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;"<?php endif; ?>>
 		
 		
 		<?php if ($this->sources): ?>
