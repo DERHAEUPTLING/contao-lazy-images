@@ -1,26 +1,41 @@
+<?php // $this->showTemplateVars(); ?>
+<?php // if ($this->sources):  echo '<style>'.$this->style.'</style>';  endif; ?>
 
-<?php if ($this->style): ?><style><?php echo $this->style; ?></style><?php endif; ?>
+<?php if ($this->sources){
+	echo '<style>
+		.' . $this->img["lazy_id"]. ' { padding-bottom: ' . (100 * $this->img["height"] / $this->img["width"]) . '%; }
+		';
+	foreach ( array_reverse($this->sources) as $source) {
+		echo '@media '. $source["media"] . '{
+			.' . $this->img["lazy_id"] . ' { padding-bottom: ' . (100 * $source["height"] / $source["width"]) . '%; }
+		}
+		';
+	}
+	echo '</style>';
+}?>
+
 <div class="intrinsic-ratio-wrapper">
-	<div class="intrinsic-ratio" style="<?php echo ($this->img['intrinsicWidthType'] ? 'width: ' . $this->img['width'] . 'px; ' : ''); ?>;">
+	<div class="intrinsic-ratio <?php if ($this->sources) { echo $this->img['lazy_id']; } ?>"<?php if (!$this->sources): ?>
+			style="<?php echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;"<?php endif; ?>>
+		
+		
 		<?php if ($this->sources): ?>
-		  <picture>
+		  <picture >
 		    <!--[if IE 9]><video style="display: none;"><![endif]-->
 		    <?php foreach ($this->sources as $source): ?>
-		      <source <?php if ($this->img['lazy_id']) echo 'class="'.$source['lazy_id'].'"'; ?> srcset="<?php echo $source['placeholder'] ?> <?php echo $source['width'] ?>w" data-srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
+		      <source srcset="<?= $source['placeholder'] ?> <?= $source['width'] ?>w" data-srcset="<?= $source['srcset'] ?>"<?php if (!empty($source['sizes'])) echo ' sizes="' . $source['sizes'] . '"'; ?><?php if (!empty($source['media'])) echo ' media="' . $source['media'] . '"'; ?>>
 		    <?php endforeach; ?>
 		    <!--[if IE 9]></video><![endif]-->
 		<?php endif; ?>
 		
 			<img
-			  src="<?php echo ($this->img['responsive'] ? $this->img['src'] : $this->img['placeholder']) ?>"
-			  <?php if ($this->img['responsive']): ?> srcset="<?php echo ($this->img['lazyType'] == 'intrinsicThumb') ? $this->img['placeholder']. ' ' .$this->img['width'] : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1'; ?>w" <?php else: ?> data-src="<?php echo $this->img['src'] ?>"<?php endif; ?>  
-			  <?php if ($this->img['responsive']): ?> data-srcset="<?php echo $this->img['srcset'] ?>" <?php endif; ?>
+			  src="<?= ($this->img['responsive'] ? $this->img['src'] : $this->img['placeholder']) ?>"
+			  <?php if ($this->img['responsive']): ?> srcset="<?= ($this->img['lazyType'] == 'intrinsicThumb') ? $this->img['placeholder']. ' ' .$this->img['width'] : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== 1'; ?>w" <?php else: ?> data-src="<?= $this->img['src'] ?>"<?php endif; ?>  
+			  <?php if ($this->img['responsive']): ?> data-srcset="<?= $this->img['srcset'] ?>"<?php endif; ?>
 			  <?php if (!empty($this->img['sizes'])) echo ' sizes="' . $this->img['sizes'] . '"'; ?>
-			  <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
-			  alt="<?php echo $this->alt; ?>"
-			  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
-			  class="<?php if ($this->img['lazyType'] == 'intrinsicThumb') echo 'thumb '; ?>lazyload<?php if ($this->img['lazy_id']) echo ' '.$this->img['lazy_id']; ?> <?php echo $this->class; ?>"
-			  <?php echo $this->attributes; ?> />
+			  <?= ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
+			  alt="<?= $this->alt; ?>"
+			  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?> class="<?php if ($this->img['lazyType'] == 'intrinsicThumb') echo 'thumb '; ?>lazyload <?= $this->class; ?>"<?= $this->attributes; ?> />
 				
 		<?php if ($this->sources): ?>
 		  </picture>
