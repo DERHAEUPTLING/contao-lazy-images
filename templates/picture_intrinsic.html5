@@ -1,6 +1,6 @@
 
 <?php if ($this->style): ?><style><?php echo $this->style; ?></style><?php endif; ?>
-<div class="intrinsic-ratio-wrapper<?php echo ($this->img['intrinsicWidthType'] ? '' : ' width-rel'); ?>">
+<div class="intrinsic-ratio-wrapper">
 	<div class="intrinsic-ratio" style="<?php echo ($this->img['intrinsicWidthType'] ? 'width: ' . $this->img['width'] . 'px; ' : ''); ?>;">
 		<?php if ($this->sources): ?>
 		  <picture>

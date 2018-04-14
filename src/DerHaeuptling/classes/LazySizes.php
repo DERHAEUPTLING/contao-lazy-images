@@ -115,7 +115,7 @@ class LazySizes
 		
 		// New template Data
 		$arrImage['lazyType'] = \Config::get('lazyPlaceholder');
-		$arrImage['intrinsicWidthType'] = \Config::get('lazyWidthType');
+		//$arrImage['intrinsicWidthType'] = \Config::get('lazyWidthType');
 		$arrImage['placeholder'] = 'data:image/png;base64,' .$placeholder;
 		$arrImage['responsive'] = ($arrImage['src'] == $arrImage['srcset'])
 			? false

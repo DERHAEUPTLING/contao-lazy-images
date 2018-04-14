@@ -16,8 +16,7 @@ $GLOBALS['TL_DCA']['tl_settings']['palettes']['__selector__'][] = 'lazyPlacehold
 // Subpalettes
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_transparent'] = 'lazyMaxWith';
 $GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_thumbnail'] = 'lazyThumbnailWidth';
-//$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsic'] = 'lazyWidthType';
-$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsicThumb'] = 'lazyThumbnailWidth,lazyWidthType';
+$GLOBALS['TL_DCA']['tl_settings']['subpalettes']['lazyPlaceholder_intrinsicThumb'] = 'lazyThumbnailWidth';
 
 
 /**
@@ -48,12 +47,6 @@ $GLOBALS['TL_DCA']['tl_settings']['fields'] = array_merge($GLOBALS['TL_DCA']['tl
 		'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['lazyThumbnailWidth'],
 		'inputType'               => 'text',
 		'eval'                    => array()
-	),
-	'lazyWidthType' => array
-	(
-		'label'                   => &$GLOBALS['TL_LANG']['tl_settings']['lazyWidthType'],
-		'inputType'               => 'checkbox',
-		'eval'                    => array('tl_class'=>'w50')
 	)
 		
 ));
