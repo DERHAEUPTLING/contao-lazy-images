@@ -41,7 +41,3 @@ $GLOBALS['TL_LANG']['tl_settings']['lazyThumbnailWidth'] = [
 	'Fixed Thumbnail with',
 	'With of the thumbnail image. Default is 50 Pixel. Enter a unitless number.',
 ];
-$GLOBALS['TL_LANG']['tl_settings']['lazyWidthType'] = [
-	'Use absolute px width instead of width: 100%',
-	'Usually the figure.image_container has a width set, like "33%" or "150px". Inside this container the image fits itself because of the CSS width: 100%;. But if a theme or CSS does not set a width on this container, enable absolute widths and the concrete width in Pixel will be used with the intrinsic ratio trick.',
-];
