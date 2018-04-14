@@ -59,7 +59,7 @@ class LazySizes
 		
 		// Set Lazy template
 		self::_initTemplate($objTemplate);
-						
+		
 		// Try to load from mem cache
 		$this->_image = $arrData['img'];
 		$this->_makeCacheKey();
@@ -224,8 +224,13 @@ class LazySizes
 		if ('intrinsic' != \Config::get('lazyPlaceholder'))
 			return;
 
-		$img['lazy_id'] = 'lazy'. md5($img['src']);
+		$img['lazy_id'] = 'imageSize_ID'. md5($img['src']);
 		$imgDivisor = 100 * $img['height'] / $img['width'];
+		
+		self::$_intrinsicStyle .= sprintf('.%s {padding-bottom: %s;}',
+			$img['lazy_id'],
+			$imgDivisor.'%'
+		);
 		
 		$srcSet = explode(', ', $img['srcset']);			
 		foreach ($srcSet as $srcEle)
@@ -243,6 +248,8 @@ class LazySizes
 				$img['lazy_id'],
 				(($_imgHeight / $_imgWidth). '%;}} ')
 			);
+			
+			// echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%';
 		}
 	}
 	
