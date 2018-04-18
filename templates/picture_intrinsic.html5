@@ -1,22 +1,24 @@
 <?php // $this->showTemplateVars(); ?>
-<?php // if ($this->sources):  echo '<style>'.$this->style.'</style>';  endif; ?>
+<?php //if ($this->sources):  echo '<style>'.$this->style.'</style>';  endif; ?>
 
 <?php if ($this->sources){
-	echo '<style>
-		.' . $this->img["lazy_id"]. ' { padding-bottom: ' . (100 * $this->img["height"] / $this->img["width"]) . '%; }
-		';
-	foreach ( array_reverse($this->sources) as $source) {
-		echo '@media '. $source["media"] . '{
-			.' . $this->img["lazy_id"] . ' { padding-bottom: ' . (100 * $source["height"] / $source["width"]) . '%; }
-		}
-		';
-	}
-	echo '</style>';
+	// echo '<style>
+	// 	.' . $this->img["lazy_id"]. ' { padding-bottom: ' . (100 * $this->img["height"] / $this->img["width"]) . '%; }
+	// 	';
+	// foreach ( array_reverse($this->sources) as $source) {
+	// 	echo '@media '. $source["media"] . '{
+	// 		.' . $this->img["lazy_id"] . ' { padding-bottom: ' . (100 * $source["height"] / $source["width"]) . '%; }
+	// 	}
+	// 	';
+	// }
+	// echo '</style>';
 }?>
 
 <div class="intrinsic-ratio-wrapper">
-	<div class="intrinsic-ratio <?php if ($this->sources) { echo $this->img['lazy_id']; } ?>"<?php if (!$this->sources): ?>
-			style="<?php echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;"<?php endif; ?>>
+	<div class="intrinsic-ratio <?php // if ($this->sources) { echo $this->img['lazy_id']; } ?>"
+	<?php // if (!$this->sources): ?>
+			style="<?php echo 'padding-bottom: ' . (100 * $this->img['height'] / $this->img['width']) . '%'; ?>;"
+	<?php // endif; ?>>
 		
 		
 		<?php if ($this->sources): ?>
