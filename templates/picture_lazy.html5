@@ -15,7 +15,7 @@
 	  <?php echo ' width="' . $this->img['width'] . '" height="' . $this->img['height'] . '"'; ?>
 	  alt="<?php echo $this->alt; ?>"
 	  <?php if ($this->title) echo ' title="' . $this->title . '"'; ?>
-	  class="<?php echo ('thumbnail' == $this->img['lazyType'] ? 'thumb ' : '') ?>lazyload <?php echo $this->class; ?>"
+	  class="<?php echo ('thumbnail' == $this->img['lazyType'] ? 'thumb ' : '') ?>lazyload <?= $this->class; ?> <?= $this->img['class'] ?>"
 	  <?php echo $this->attributes; ?> />
 
 <?php if ($this->sources): ?>
