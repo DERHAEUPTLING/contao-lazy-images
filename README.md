@@ -13,11 +13,22 @@ Both issues are now becomming solved by native browser support ... at least part
    The loading attribute  `<img loading="lazy">` brings native lazy loading to the browser.  
    As of writing this, it is supported by Google Chrome & Microsoft Edge.  
    more info:  
-   [caniuse.com](https://caniuse.com/#search=lazy%20loading)  
-   [Firefox has plans for v75](https://bugzilla.mozilla.org/show_bug.cgi?id=1542784)  
-   [Safari is working on this](https://bugs.webkit.org/show_bug.cgi?id=200764)
-   
+   <a href="https://caniuse.com/#search=lazy%20loading" target="_blank">caniuse.com</a>  
+   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1542784" target="_blank">Firefox has plans for v75</a>  
+   <a href="https://bugs.webkit.org/show_bug.cgi?id=200764" target="_blank">Safari is working on it too</a>   
+
 2. native image placeholder
+
+   Img with and height attributes still work perfectly to paint a placeholder into which the image will be loaded.  
+   But whenever we added responsive css to our images, like by adding `style="width: 100%; height: auto;`, the browser where unable to paint the placeholder.  
+   
+   But in the meantime, beginning with Firefox, the broswers now utilize the with and height img attributes to calculate an aspect ratio. With this aspect ratio modern browsers can now paint a placeholder.  
+   (actually this is the same, what the <a src="https://alistapart.com/article/creating-intrinsic-ratios-for-video/" target="_blank">intrinsic ratio </a> trick did back in 2009.)  
+Source: <a href="https://www.youtube.com/watch?v=4-d_SoCHeWE" target="_blank">https://www.youtube.com/watch?v=4-d_SoCHeWE</a> 
+
+
+
+Thanks for having used this Plugin!
    
 
  
