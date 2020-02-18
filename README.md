@@ -1,3 +1,30 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+# DEPRECATED
+
+This plugin had two major issues to solve:
+1. lazy load images
+2. prevent browser reflow whenever image dimensions become available
+   
+Both issues are now becomming solved by native browser support ... at least partially for now.
+  
+
+1. native lazy loading
+
+   The loading attribute  `<img loading="lazy">` brings native lazy loading to the browser.  
+   As of writing this, it is supported by Google Chrome & Microsoft Edge.  
+   more info:  
+   [caniuse.com](https://caniuse.com/#search=lazy%20loading)  
+   [Firefox has plans for v75](https://bugzilla.mozilla.org/show_bug.cgi?id=1542784)  
+   [Safari is working on this](https://bugs.webkit.org/show_bug.cgi?id=200764)
+   
+2. native image placeholder
+   
+
+ 
+ 
+  
+  
+
 # contao-lazy-images
 Contao Plugin for lazyloading images with LazySizes.js without the disturbing reflow of the website, whenever an image is loaded.
 
