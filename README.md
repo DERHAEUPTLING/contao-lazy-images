@@ -25,7 +25,7 @@ Both issues are now becomming solved by native browser support ... at least part
    But in the meantime, beginning with Firefox, the broswers now utilize the with and height img attributes to calculate an aspect ratio. With this aspect ratio modern browsers can now paint a placeholder.  
    (actually this is the same, what this plugin does and the <a src="https://alistapart.com/article/creating-intrinsic-ratios-for-video/" target="_blank">intrinsic ratio </a> trick did back in 2009.)  
    
-Source: <a href="https://www.youtube.com/watch?v=4-d_SoCHeWE" target="_blank">https://www.youtube.com/watch?v=4-d_SoCHeWE</a> 
+   Source: <a href="https://www.youtube.com/watch?v=4-d_SoCHeWE" target="_blank">https://www.youtube.com/watch?v=4-d_SoCHeWE</a> 
 
 
 
