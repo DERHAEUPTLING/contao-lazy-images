@@ -5,7 +5,7 @@ This plugin had two major issues to solve:
 1. lazy load images
 2. prevent browser reflow whenever image dimensions become available
    
-Both issues are now becomming solved by native browser support ... at least partially for now.
+Both issues are now becoming solved by native browser support ... at least partially for now.
   
 
 1. native lazy loading
