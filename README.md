@@ -20,7 +20,7 @@ Both issues are now becomming solved by native browser support ... at least part
 2. native image placeholder
 
    Img with and height attributes still work perfectly to paint a placeholder into which the image will be loaded.  
-   But whenever we added responsive css to our images, like by adding `style="width: 100%; height: auto;`, the browser where unable to paint the placeholder.  
+   But whenever we added responsive css to our images, like by adding `style="width: 100%; height: auto;"`, the browser where unable to paint the placeholder.  
    
    But in the meantime, beginning with Firefox, the broswers now utilize the with and height img attributes to calculate an aspect ratio. With this aspect ratio modern browsers can now paint a placeholder.  
    (actually this is the same, what this plugin does and the <a href="https://alistapart.com/article/creating-intrinsic-ratios-for-video/" target="_blank">intrinsic ratio </a> trick did back in 2009.)  
