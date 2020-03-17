@@ -1,11 +1,11 @@
 [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 # DEPRECATED
 
-This plugin was made to solve two things:
+This plugin was made to do two things:
 1. lazy load images
 2. prevent browser reflow whenever image dimensions become available
    
-Both issues are now becoming solved by native browser support ... at least partially for now.
+Both are now becoming solved by native browser support ... at least partially for now.
   
 
 1. native lazy loading
