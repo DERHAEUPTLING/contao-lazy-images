@@ -1,7 +1,7 @@
 [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 # DEPRECATED
 
-This plugin had two major issues to solve:
+This plugin was made to solve two things:
 1. lazy load images
 2. prevent browser reflow whenever image dimensions become available
    
